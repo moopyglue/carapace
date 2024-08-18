@@ -1,0 +1,18 @@
+
+function funcs() {
+
+	if [[ $1 == "" ]] ; then
+
+		# if no params provided then list all functions which
+		# do not start with an underscore
+		declare -F | awk '{print $3}' | grep --color=auto -v "^_"
+
+	else
+
+		# show the contenst of the named function
+		declare -f $@ 
+		# declare -f $@ | awk '{ printf("%5d  %s\n",NR,$0) }'
+
+	fi
+
+}

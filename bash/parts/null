@@ -1,0 +1,5 @@
+
+function null () {
+	cat > /dev/null
+}
+

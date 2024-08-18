@@ -1,0 +1,8 @@
+total 24
+drwxr-xr-x 2 simon simon 4096 Aug 18 15:08 .
+drwxr-xr-x 4 simon simon 4096 Aug 18 14:46 ..
+-rw-r--r-- 1 simon simon  315 Aug 18 15:03 carapace
+-rw-r--r-- 1 simon simon  920 Aug 18 15:07 color
+-rw-r--r-- 1 simon simon  333 Aug 18 14:21 funcs
+-rw-r--r-- 1 simon simon   40 Aug 18 14:42 null
+-rw-r--r-- 1 simon simon    0 Aug 18 14:35 prompt

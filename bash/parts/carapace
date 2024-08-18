@@ -1,0 +1,21 @@
+
+export CARAPACE=$HOME/carapace/bash
+
+function carapace() {
+
+	local command=$1
+	local param1=$2
+
+	# provide help information 
+	if [[ $command == "help" ]] ; then
+		[[ $param1 == "" ]] && param1=help
+		if [[ -r $CARAPACE/help/$param1 ]] ; then
+			cat $CARAPACE/help/$param1
+		else
+			echo "No help available for '$param1'"
+			false
+		fi
+		return
+	fi
+
+}

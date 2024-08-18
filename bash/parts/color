@@ -1,0 +1,52 @@
+
+function color() {
+
+    [[ $1 == "--help" || $1 == "-h" || $1 == "help" ]] && printf " 
+Usage:
+    color <color_name> <text to be colored>
+
+        color provided text from the command line
+
+    [command generating output] | color <color_name>
+
+        with no provided text 'color' asumes that colored text will 
+        be provided on standard input and can be multi-line content.
+
+    <color_name>
+
+        for text only colors you can name 
+        red, green, yellow, blue, purple, cyan
+
+        for inverted colors (coloring the background)
+        redbg, greenbg, yellowbg, blubg, purplebg, cyanbg
+
+" && return
+
+    [[ $1 == "" ]] && return 
+
+    local e="\033[01;"
+    local escape_sequence=$( 
+    case $1 in 
+        clear)       printf "${e}0m" ;;
+        red)         printf "${e}31m" ;;
+        green)       printf "${e}32m" ;;
+        yellow)      printf "${e}33m" ;;
+        blue)        printf "${e}34m" ;;
+        purple)      printf "${e}35m" ;;
+        cyan)        printf "${e}36m" ;;
+        redbg)       printf "${e}41m${e}37m" ;;
+        greenbg)     printf "${e}42m${e}37m" ;;
+        yellowbg)    printf "${e}43m${e}37m" ;;
+        bluebg)      printf "${e}44m${e}37m" ;;
+        purplebg)    printf "${e}45m${e}37m" ;;
+        cyanbg)      printf "${e}46m${e}37m" ;;
+    esac
+    )
+    shift
+    (
+        [[ $1 == "" ]] && cat
+        [[ $1 != "" ]] && echo "$@"
+    ) | awk -v color="${escape_sequence}" -v clear="$(printf "${e}0m")" '{print color $0 clear}'
+}
+
+# vim: set filetype=bash
