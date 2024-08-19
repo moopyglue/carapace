@@ -1,7 +1,12 @@
+#!/bin/bash
+#========================================================================
+# file to be INCLUDED ONLY as it only defines functions
 
 function color() {
 
     [[ $1 == "--help" || $1 == "-h" || $1 == "help" ]] && printf " 
+This script is used to color text to highlight output 
+
 Usage:
     color <color_name> <text to be colored>
 
@@ -49,4 +54,4 @@ Usage:
     ) | awk -v color="${escape_sequence}" -v clear="$(printf "${e}0m")" '{print color $0 clear}'
 }
 
-# vim: set filetype=bash
+# vim: set filetype=sh
