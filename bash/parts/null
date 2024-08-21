@@ -1,5 +1,15 @@
+#!/bin/bash
+#========================================================================
+# file to be INCLUDED ONLY as it only defines functions
 
 function null () {
+
+    [[ $1 == "--help" || $1 == "-h" || $1 == "help" ]] && printf "
+Usage: [any output] | null
+	This simply lets you pipe to 'null' as a short cut to replace
+	the usage of > /dev/null
+
+" && return
 	cat > /dev/null
 }
 

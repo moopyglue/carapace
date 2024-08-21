@@ -1,6 +1,19 @@
+#!/bin/bash
+#========================================================================
+# file to be INCLUDED ONLY as it only defines functions
 
 function funcs() {
 
+    [[ $1 == "--help" || $1 == "-h" || $1 == "help" ]] && printf " 
+This bash function() is used to list/display functions 
+
+Usage:
+	funcs
+		list all the defined bash functions
+	funcs <function name>
+		displays the function onctent for the named function 
+
+" && return
 	if [[ $1 == "" ]] ; then
 
 		# if no params provided then list all functions which
@@ -16,3 +29,5 @@ function funcs() {
 	fi
 
 }
+
+
